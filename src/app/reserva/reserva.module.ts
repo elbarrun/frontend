@@ -6,6 +6,7 @@ import { CreateComponent } from './create/create.component';
 import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
 import { IndexComponent } from './index/index.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { IndexComponent } from './index/index.component';
   ],
   imports: [
     CommonModule,
-    ReservaRoutingModule
+    ReservaRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ReservaModule { }
