@@ -28,19 +28,23 @@ export class CreateComponent implements OnInit {
     private http: HttpClient,
     public fb: FormBuilder,
   ) { }
+}
 
   /**
    * Write code on Method
    *
    * @return response()
    */
-  ngOnInit(): void {
+  ngOnInit() {
     this.form = new FormGroup({
+      user_id: new FormControl(null, Validators.required),
+      coche_id: new FormControl(null, Validators.required),
       fecha_inicio: new FormControl('', Validators.required),
       fecha_fin: new FormControl('', Validators.required),
       precio_total: new FormControl(null, Validators.required),
       estado: new FormControl(null, Validators.required)
     });
+
   }
 
   /**
@@ -65,19 +69,23 @@ export class CreateComponent implements OnInit {
     });
   }
   submit(){
-    const formData = new FormData();
-    formData.append('fecha_inicio', this.form.value.fecha_inicio);
-    formData.append('fecha_fin', this.form.value.fecha_fin);
-    formData.append('precio_total', this.form.value.precio_total);
-    formData.append('estado', this.form.value.estado);
+    const reserva = {
+      user_id: this.form.value.user_id,
+      coche_id: this.form.value.coche_id,
+      fecha_inicio: this.form.value.fecha_inicio,
+      fecha_fin: this.form.value.fecha_fin,
+      precio_total: this.form.value.precio_total,
+      estado: this.form.value.estado
+    };
 
-    this.reservaService.create(formData).subscribe(
-      response => {
+    this.reservaService.create(reserva).subscribe(
+      (response:any) => {
         console.log(response);
         this.router.navigate(['/reservas']);
       },
-      error => {
+      (error:any) => {
         console.log(error);
       }
     );
-    }}
+  }
+

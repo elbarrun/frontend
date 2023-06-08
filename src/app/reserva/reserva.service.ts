@@ -7,7 +7,7 @@ import { Reserva } from './reserva';
 @Injectable({
   providedIn: 'root'
 })
-export class PeticionService {
+export class ReservaService {
 
   private apiURL = "http://127.0.0.1:8000/api";
 

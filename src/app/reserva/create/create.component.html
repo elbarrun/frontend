@@ -1,1 +1,81 @@
-<p>create works!</p>
+<div class="container mt-5">
+  <h1>Create New Reserva</h1>
+
+  <a routerLink="/reservas" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="user_id">User ID</label>
+      <input
+          formControlName="user_id"
+          id="user_id"
+          type="number"
+          class="form-control">
+      <div *ngIf="f['user_id'].touched && f['user_id'].invalid" class="alert alert-danger">
+          <div *ngIf="f['user_id'].errors && f['user_id'].errors['required']">User ID is required.</div>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label for="coche_id">Coche ID</label>
+      <input
+          formControlName="coche_id"
+          id="coche_id"
+          type="number"
+          class="form-control">
+      <div *ngIf="f['coche_id'].touched && f['coche_id'].invalid" class="alert alert-danger">
+          <div *ngIf="f['coche_id'].errors && f['coche_id'].errors['required']">Coche ID is required.</div>
+      </div>
+  </div>
+
+      <div class="form-group">
+          <label for="fecha_inicio">Fecha Inicio:</label>
+          <input
+              formControlName="fecha_inicio"
+              id="fecha_inicio"
+              type="date"
+              class="form-control">
+          <div *ngIf="f['fecha_inicio'].touched && f['fecha_inicio'].invalid" class="alert alert-danger">
+              <div *ngIf="f['fecha_inicio'].errors && f['fecha_inicio'].errors['required']">Fecha inicio is required.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="fecha_fin">Fecha Fin</label>
+          <input
+              formControlName="fecha_fin"
+              id="fecha_fin"
+              type="date"
+              class="form-control">
+          <div *ngIf="f['fecha_fin'].touched && f['fecha_fin'].invalid" class="alert alert-danger">
+              <div *ngIf="f['fecha_fin'].errors && f['fecha_fin'].errors['required']">Fecha fin is required.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="precio_total">Precio Total</label>
+          <input
+              formControlName="precio_total"
+              id="precio_total"
+              type="number"
+              class="form-control">
+          <div *ngIf="f['precio_total'].touched && f['precio_total'].invalid" class="alert alert-danger">
+              <div *ngIf="f['precio_total'].errors && f['precio_total'].errors['required']">Precio total is required.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="estado">Estado</label>
+          <input
+              formControlName="estado"
+              id="estado"
+              type="text"
+              class="form-control">
+          <div *ngIf="f['estado'].touched && f['estado'].invalid" class="alert alert-danger">
+              <div *ngIf="f['estado'].errors && f['estado'].errors['required']">Estado is required.</div>
+          </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>
