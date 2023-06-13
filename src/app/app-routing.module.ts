@@ -4,7 +4,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { IndexComponent } from './reserva/index/index.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { CreateComponent } from './reserva/create/create.component'; // Importa el componente de creación de reservas aquí
+import { CreateComponent } from './reserva/create/create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },
   { path: 'profile', component: UserProfileComponent },
-  { path: 'reservas/create:id',  component: CreateComponent }
+  { path: 'reserva/create/:cocheId',  component: CreateComponent },
+
+
 ];
 
 @NgModule({

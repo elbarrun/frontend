@@ -14,7 +14,7 @@ export class ReservaService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+    'Content-Type': 'application/json'
     })
   }
 
@@ -27,8 +27,14 @@ export class ReservaService {
       )
   }
 
-  create(reserva: FormData): Observable<any> {
-    return this.httpClient.post(this.apiURL + '/reservas/create', reserva, this.httpOptions)
+  create(reserva:any): Observable<any> {
+    let httpOptions = {
+      headers: new HttpHeaders({
+      'Content-Type': 'multipart/form-data',
+      'Accept': '*/*'
+      })
+    }
+    return this.httpClient.post(this.apiURL + '/reservas', reserva, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

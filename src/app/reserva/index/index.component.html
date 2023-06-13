@@ -10,7 +10,8 @@
         <li>Puertas: {{coche.tipo_conduccion}}</li>
       </ul>
         <p>Precio por día {{coche.precio_dia}}€</p>
-        <a routerLink="'/reserva/create/' + coche.id" class="btn btn-primary">Reservar este coche</a>
-    </div>
+        <a [routerLink]="['/reserva/create', coche.id]" class="btn btn-primary">Reservar este coche</a>
+        
+      </div>
   </div>
 </div>

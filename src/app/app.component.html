@@ -2,8 +2,8 @@
     <a routerLink="/index"><h4>Alquiler de coches</h4></a>
     <nav class="my-3">
         <a routerLink="/profile" *ngIf="isSignedIn" class="p2 text-dark">Usuario</a>
-        <a routerLink="/login" *ngIf="isSignedIn" class="p2 text-dark">Iniciar Sesión</a>
-        <a routerLink="/register" *ngIf="isSignedIn" class="p2 text-dark">Registro</a>
+        <a routerLink="/login" *ngIf="!isSignedIn" class="p2 text-dark">Iniciar Sesión</a>
+        <a routerLink="/register" *ngIf="!isSignedIn" class="p2 text-dark">Registro</a>
     </nav>
     <button class="btn" (click)="signOut()" *ngIf="isSignedIn">Log Out</button>
 </div>
